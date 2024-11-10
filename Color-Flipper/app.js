@@ -8,7 +8,7 @@ btn.addEventListener('click', function(){
 
 //    get randon number between 0 - 3 colors
     const randomNumber = getRandomNumber();
-    console.log(randomNumber);
+    // console.log(randomNumber);
     
     document.body.style.backgroundColor = colors[randomNumber];
     color.textContent = colors[randomNumber];
