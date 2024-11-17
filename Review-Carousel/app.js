@@ -38,8 +38,52 @@ const reviews = [
 
   const prevBtn = document.querySelector('.prev-btn');
   const nextBtn = document.querySelector('.next-btn');
-  const random = document.querySelector('.random-btn');
+  const randomBtn = document.querySelector('.random-btn');
 
-//   srt starting item
+//   set starting item
+let currentItem = 0;
 
-let current
+//  load initial item
+
+window,addEventListener('DOMContentLoaded', function (){
+  // console.log('shake and bake');
+  showPerson();
+});
+
+// Show person based on item
+
+function showPerson(){
+  const item = reviews[currentItem];
+  img.src = item.img;
+  author.textContent = item.name;
+  job.textContent = item.job;
+  info.textContent = item.text;
+}
+
+// show next person
+nextBtn.addEventListener('click', function(){
+  currentItem++;
+  if(currentItem > reviews.length - 1){
+    currentItem = 0;
+  }
+  showPerson();
+})
+
+
+// show prev person
+prevBtn.addEventListener('click', function(){
+  currentItem--;
+  if (currentItem < 0) {
+    currentItem = reviews.length -1;
+  }
+  
+  showPerson();
+})
+
+//  show random person
+randomBtn.addEventListener('click', function(){
+  currentItem = Math.floor(Math.random() * reviews.length)
+  console.log(currentItem);
+  showPerson()
+  
+})
